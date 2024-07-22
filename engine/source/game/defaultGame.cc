@@ -261,6 +261,11 @@ bool initializeGame(int argc, const char **argv)
     // Check if any command-line parameters were passed (the first is just the app name).
     if (argc > 1)
     {
+        if (dStrncmp(argv[1], "-ping", 6) == 0) {
+            printf("pong\n");
+            return false;
+        }
+
         // If so, check if the first parameter is a file to open.
         if ( (scriptFileStream.open(argv[1], FileStream::Read)) && dStrncmp(argv[1], "", 1) )
         {
